@@ -1,6 +1,7 @@
 package com.example.infomusik;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +21,8 @@ public class band extends AppCompatActivity {
     private RecyclerView mBandDblist;
     private DatabaseReference mDatabase;
 
+    private FirebaseRecyclerAdapter<bandDb, BandDbViewHolder> firebaseRecyclerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +38,27 @@ public class band extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseRecyclerAdapter<bandDb, BandDbViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<bandDb, BandDbViewHolder>
+        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<bandDb, BandDbViewHolder>
                 (bandDb.class, R.layout.blog_row, BandDbViewHolder.class, mDatabase) {
             @Override
-            protected void populateViewHolder(BandDbViewHolder viewHolder, bandDb model, int position) {
+            protected void populateViewHolder(BandDbViewHolder viewHolder, bandDb model,final int position) {
 
                 viewHolder.setFoto(getApplicationContext(), model.getFoto());
                 viewHolder.setInfo(model.getInfo());
+
+                viewHolder.cardview.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(band.this, detailband.class);
+                        intent.putExtra("Band Terbaik", firebaseRecyclerAdapter.getRef(position).getKey());
+                        startActivity(intent);
+                    }
+                });
+
+
+
+
+
             }
 
         };
@@ -51,13 +68,12 @@ public class band extends AppCompatActivity {
 
     public static class BandDbViewHolder extends RecyclerView.ViewHolder
     {
-        View mview;
-
-
+        View mview, cardview;
 
         public BandDbViewHolder(View itemView){
             super(itemView);
             mview = itemView;
+            cardview = itemView.findViewById(R.id.blog_row);
         }
 
         public void setInfo(String info) {

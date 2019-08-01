@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "757660923368-bu7eaf63p4brl9e58t64ertgc79vtojn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.infomusik",
+            "certificate_hash": "819b46271654cf7ed7feeb662558ce9130211d5c"
+          }
+        },
+        {
           "client_id": "757660923368-345r8n0uankg0nvusumqui4fo11aluh6.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -5,12 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".profil">
-
-    <ListView
+    tools:context=".playlist">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/mySongListView"
-        ></ListView>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginBottom="10dp"
+            android:background="#B8860B"
+            android:paddingTop="42dp"
+            android:paddingBottom="42dp"
+            android:text="Playlist"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="40sp" />
+
+        <ListView
+            android:id="@+id/mySongListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+
+    </LinearLayout>
+
     
 </RelativeLayout>

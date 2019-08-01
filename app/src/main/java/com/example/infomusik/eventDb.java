@@ -2,30 +2,43 @@ package com.example.infomusik;
 
 public class eventDb {
 
-    private String judul;
-    private String ket;
+    private String foto;
+    private String info;
+    private String desc;
 
-
-    public eventDb(String judul, String ket) {
-        this.judul = judul;
-        this.ket = ket;
+    public eventDb(String foto, String info, String desc) {
+        this.foto = foto;
+        this.info = info;
+        this.desc = desc;
     }
 
-    public String getJudul() {
-        return judul;
+
+
+    public String getFoto() {
+        return foto;
     }
 
-    public void setJudul(String judul) {
-        this.judul = judul;
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
-    public String getKet() {
-        return ket;
+    public String getInfo() {
+        return info;
     }
 
-    public void setKet(String ket) {
-        this.ket = ket;
+    public void setInfo(String info) {
+        this.info = info;
     }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+
 
     public eventDb() {
     }
